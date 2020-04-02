@@ -12,12 +12,16 @@ namespace benchmark
             List<string> BigList = new List<string>();
             Console.WriteLine("Start the benchmark");
             Console.WriteLine($"Adding {length} string");
+            DateTime start = DateTime.Now;
             //create a big list
             for (int i = 0; i < length; i++)
             {
                 BigList.Add($"string{i}");
             }
-            Console.WriteLine($"{length} string added");
+            DateTime end = DateTime.Now;
+            TimeSpan totaltime = end - start;
+
+            Console.WriteLine($"{length} string added. Took {Math.Round(totaltime.TotalSeconds,3)} seconds");
         }
     }
 }
